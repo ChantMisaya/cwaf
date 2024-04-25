@@ -1,0 +1,52 @@
+version: '3'
+networks:
+  cwaf-test:
+    name: cwaf-test
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - gateway: 192.168.2.1
+          subnet: 192.168.2.0/24
+    driver_opts:
+      com.docker.network.bridge.name: cwaf-test
+
+services:
+  # web:
+  #   container_name: juice
+  #   restart: always
+  #   image: bkimminich/juice-shop
+  #   environment:
+  #     TZ: Asia/Shanghai
+  #   networks:
+  #     - cwaf-test
+
+  modsec:
+    container_name: ms
+    restart: always
+    image: owasp/modsecurity-crs:4.0.0-nginx-202402261002
+    environment:
+      BACKEND: http://192.168.1.5:80
+      # ACCESS_LOG: /var/log/nginx/access.log
+      TZ: Asia/Shanghai
+      # METRICS_ALLOW_FROM: 192.168.1.1/24
+    # ports:
+    #   - 80:8080
+    volumes:
+      - ./log:/var/log/nginx
+      # - ./configuration:/etc/nginx/templates/conf.d
+      # - ./msconf:/etc/nginx/templates/modsecurity.d
+    # networks:
+    #   - cwaf-test
+    network_mode: "host"
+  web:
+    container_name: ng
+    restart: always
+    image: nginx
+    ports:
+      - 80:80
+    networks:
+      - cwaf-test
+    
+
+

@@ -1,0 +1,7 @@
+2024/04/25 22:21:42 [notice] 1#1: ModSecurity-nginx v1.0.3 (rules loaded inline/local/remote: 0/0/0)
+2024/04/25 22:23:53 [notice] 1#1: ModSecurity-nginx v1.0.3 (rules loaded inline/local/remote: 0/0/0)
+2024/04/25 22:26:59 [notice] 1#1: ModSecurity-nginx v1.0.3 (rules loaded inline/local/remote: 0/0/0)
+2024/04/25 22:40:23 [notice] 1#1: ModSecurity-nginx v1.0.3 (rules loaded inline/local/remote: 0/0/0)
+2024/04/25 22:40:27 [notice] 1#1: ModSecurity-nginx v1.0.3 (rules loaded inline/local/remote: 0/0/0)
+2024/04/25 22:41:04 [error] 101#101: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 192.168.1.2, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "192.168.1.5:8080", referrer: "http://192.168.1.5:8080/"
+2024/04/25 22:41:47 [error] 101#101: *1 open() "/usr/share/nginx/html/‘" failed (2: No such file or directory), client: 192.168.1.2, server: localhost, request: "GET /%E2%80%98?id=3%20or%20%27a%27=%27a%27 HTTP/1.1", host: "192.168.1.5:8080"
